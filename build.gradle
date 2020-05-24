@@ -30,17 +30,14 @@ publishing {
             name = "Expekt"
             url = uri("https://maven.pkg.github.com/theapache64/expekt")
             credentials {
-                username = System.getenv("GITHUB_ACTOR")
+                username = System.getenv("USERNAME")
                 password = System.getenv("GITHUB_TOKEN")
             }
         }
     }
     publications {
-        register("jar", MavenPublication) {
+        gpr(MavenPublication) {
             from(components.java)
-            pom {
-                url.set("https://github.com/theapache64/expekt.git")
-            }
         }
     }
 }
