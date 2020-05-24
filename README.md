@@ -1,6 +1,7 @@
-# Expekt [![Travic CI](https://travis-ci.org/winterbe/expekt.svg?branch=master)](https://travis-ci.org/winterbe/expekt)
+# Expekt ![Build](https://github.com/theapache64/expekt/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
-Expekt is a (work in progress) BDD assertion library for [Kotlin](http://kotlinlang.org/), inspired by [Chai.js](http://chaijs.com/). It works with your favorite test runner such as [JUnit](http://junit.org/) and [Spek](http://jetbrains.github.io/spek/).
+Expekt is a (work in progress) BDD assertion library for [Kotlin](http://kotlinlang.org/), inspired by [Chai.js](http://chaijs.com/).  
+It works with your favorite test runner such as [JUnit](http://junit.org/) and [Spek](http://jetbrains.github.io/spek/).
 
 ```kotlin
 class ExpektTest {
@@ -50,8 +51,6 @@ import com.theapache64.expekt.should
 ```
 
 The Expekt API consists of many chainable properties and functions. Properties like `to`, `be` and `which` are provided to improve readibility. They don't serve any semantical meaning. The property `not` is used to negate expectations. Depending on the type of the initial value plenty of properties and functions are available to assert different aspects of the value, e.g. you can assert that a collection contains some elements, that a number is within it's bounds or that a string matches a given regex pattern.
-
-
 
 ### What happens when expectations fail?
 

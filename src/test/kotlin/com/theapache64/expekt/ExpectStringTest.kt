@@ -31,6 +31,11 @@ class ExpectStringTest {
     }
 
     @Test
+    fun containWithIgnoreCase() {
+        "ABCdefGHI".should.contain("DEF", ignoreCase = true)
+    }
+
+    @Test
     fun notContain() {
         passes { expect("abc").not.to.contain("d") }
         fails("expect abc not to contain b") {
