@@ -45,8 +45,8 @@ It comes in two flavors `should` and `expect`, both exposing the same API. It's 
 When using IntelliJ IDEA you can simply use `expect` and `should` from classpath. The IDE handles all imports for you. In case you have to handle imports manually, add one of those to your test file:
 
 ```kotlin
-import com.winterbe.expekt.expect
-import com.winterbe.expekt.should
+import com.theapache64.expekt.expect
+import com.theapache64.expekt.should
 ```
 
 The Expekt API consists of many chainable properties and functions. Properties like `to`, `be` and `which` are provided to improve readibility. They don't serve any semantical meaning. The property `not` is used to negate expectations. Depending on the type of the initial value plenty of properties and functions are available to assert different aspects of the value, e.g. you can assert that a collection contains some elements, that a number is within it's bounds or that a string matches a given regex pattern.
@@ -71,9 +71,9 @@ The above test fails, resulting in the following exception:
 ```
 java.lang.AssertionError: 3.4 should be closeTo 3.2 ±0.1
 
-	at com.winterbe.expekt.ExpectAny.fail(ExpectAny.kt:77)
-	at com.winterbe.expekt.ExpectAny.verify(ExpectAny.kt:68)
-	at com.winterbe.expekt.ExpectDouble.closeTo(ExpectDouble.kt:12)
+	at com.theapache64.expekt.ExpectAny.fail(ExpectAny.kt:77)
+	at com.theapache64.expekt.ExpectAny.verify(ExpectAny.kt:68)
+	at com.theapache64.expekt.ExpectDouble.closeTo(ExpectDouble.kt:12)
 	at com.example.ExampleTest.example1(ExampleTest.kt:10)
 ```
 
