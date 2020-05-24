@@ -36,8 +36,11 @@ publishing {
         }
     }
     publications {
-        gpr(MavenPublication) {
+        register("jar", MavenPublication) {
             from(components.java)
+            pom {
+                url.set("https://github.com/theapache64/expekt.git")
+            }
         }
     }
 }
