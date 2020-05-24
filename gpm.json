@@ -1,0 +1,18 @@
+{
+ "added": [
+  {
+   "id": 1,
+   "type": "testImplementation",
+   "installed_name": "junit",
+   "gpm_dep": {
+    "artifact_id": "junit",
+    "default_type": "implementation",
+    "docs": "https://mvnrepository.com/artifact/junit/junit",
+    "get_from": "Central",
+    "group_id": "junit",
+    "name": "JUnit",
+    "description": "JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck."
+   }
+  }
+ ]
+}

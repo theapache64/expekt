@@ -51,7 +51,7 @@ import com.winterbe.expekt.should
 
 The Expekt API consists of many chainable properties and functions. Properties like `to`, `be` and `which` are provided to improve readibility. They don't serve any semantical meaning. The property `not` is used to negate expectations. Depending on the type of the initial value plenty of properties and functions are available to assert different aspects of the value, e.g. you can assert that a collection contains some elements, that a number is within it's bounds or that a string matches a given regex pattern.
 
-See [API doc](APIDOC.md) for all available assertion properties and functions.
+
 
 ### What happens when expectations fail?
 
