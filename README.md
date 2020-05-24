@@ -33,7 +33,7 @@ Expekt is available via [Maven Central](https://repo1.maven.org/maven2/com/winte
 ##### Gradle
 
 ```groovy
-testImplementation "com.theapache64:expekt:0.5.0"
+testImplementation "com.theapache64:expekt:latest-version"
 ```
 
 ### Introduction
