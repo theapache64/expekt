@@ -13,7 +13,7 @@ class ExpektTest {
 }
 ```
 
-> [Follow on Twitter](https://twitter.com/winterbe_) for updates!
+> [Follow on Twitter](https://twitter.com/theapache64) for updates!
 
 ### Getting started
 
@@ -23,9 +23,9 @@ Expekt is available via [Maven Central](https://repo1.maven.org/maven2/com/winte
 
 ```xml
 <dependency>
-    <groupId>com.winterbe</groupId>
+    <groupId>com.theapache64</groupId>
     <artifactId>expekt</artifactId>
-    <version>0.5.0</version>
+    <version>0.0.1</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -33,7 +33,7 @@ Expekt is available via [Maven Central](https://repo1.maven.org/maven2/com/winte
 ##### Gradle
 
 ```groovy
-testCompile "com.winterbe:expekt:0.5.0"
+testImplementation "com.theapache64:expekt:0.5.0"
 ```
 
 ### Introduction
