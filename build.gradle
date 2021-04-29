@@ -6,8 +6,8 @@ plugins {
     id 'com.jfrog.bintray' version '1.8.5'
 }
 
-group 'com.theapache64'
-version '0.0.1'
+group 'com.github.theapache64'
+version '1.0.0'
 
 repositories {
     mavenCentral()
@@ -74,9 +74,9 @@ publishing {
             artifact javadocJar {
                 classifier "javadoc"
             }
-            groupId 'com.theapache64'
+            groupId 'com.github.theapache64'
             artifactId 'expekt'
-            version '0.0.1'
+            version '1.0.0'
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'An assertion library for Kotlin')
@@ -86,24 +86,4 @@ publishing {
             }
         }
     }
-}
-
-bintray {
-    user = System.getenv('BINTRAY_USER')
-    key = System.getenv('BINTRAY_API_KEY')
-    publications = ['mavenPublication']
-
-    pkg {
-        repo = 'maven'
-        name = 'expekt'
-        userOrg = 'shifarshifz'
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/theapache64/greetings-plugin.git'
-        version {
-            name = '0.0.1'
-            desc = 'An assertion library for Kotlin'
-            released = new Date()
-        }
-    }
-
 }

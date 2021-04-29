@@ -1,4 +1,4 @@
-package com.theapache64.expekt
+package com.github.theapache64.expekt
 
 /**
  * Expectation context for `Double` values.

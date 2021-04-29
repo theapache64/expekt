@@ -1,4 +1,4 @@
-package com.theapache64.expekt
+package com.github.theapache64.expekt
 
 /**
  * Expectation context for any kind of value. Every specific expectation context extends from this context.

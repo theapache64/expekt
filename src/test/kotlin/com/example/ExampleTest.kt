@@ -1,7 +1,7 @@
 package com.example
 
-import com.theapache64.expekt.expect
-import com.theapache64.expekt.should
+import com.github.theapache64.expekt.expect
+import com.github.theapache64.expekt.should
 import org.junit.Assert
 import org.junit.Test
 

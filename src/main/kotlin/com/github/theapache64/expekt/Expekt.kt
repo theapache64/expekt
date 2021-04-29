@@ -1,4 +1,4 @@
-package com.theapache64.expekt
+package com.github.theapache64.expekt
 
 fun <T> expect(subject: T?): ExpectAny<T?> {
     return ExpectAny(subject, Flavor.EXPECT)
