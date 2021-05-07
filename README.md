@@ -24,20 +24,16 @@ Expekt is available via [Maven Central](https://repo1.maven.org/maven2/com/winte
 
 ![latestVersion](https://img.shields.io/github/v/release/theapache64/expekt)
 
-```xml
-
-<dependency>
-    <groupId>com.github.theapache64com.github.theapache64</groupId>
-    <artifactId>expekt</artifactId>
-    <version>latest.version</version>
-    <scope>test</scope>
-</dependency>
-```
-
 ##### Gradle
 
 ```groovy
-testImplementation "com.github.theapache64:expekt:latest.version"
+repositories {
+    maven {url "https://jitpack.io"}
+}
+
+dependencies {
+   testImplementation "com.github.theapache64:expekt:latest.version"
+}
 ```
 
 ### Introduction
