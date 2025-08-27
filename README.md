@@ -1,7 +1,8 @@
 # Expekt ![Build](https://github.com/theapache64/expekt/workflows/Java%20CI%20with%20Gradle/badge.svg)
 
-Expekt is a (work in progress) BDD assertion library for [Kotlin](http://kotlinlang.org/), inspired by [Chai.js](http://chaijs.com/).  
+Expekt is a BDD assertion library for [Kotlin](http://kotlinlang.org/), inspired by [Chai.js](http://chaijs.com/).  
 It works with your favorite test runner such as [JUnit](http://junit.org/) and [Spek](http://jetbrains.github.io/spek/).
+This project is fork of https://github.com/winterbe/expekt (thanks to @winterbe)
 
 ```kotlin
 class ExpektTest {
@@ -14,11 +15,10 @@ class ExpektTest {
 }
 ```
 
-> [Follow on Twitter](https://twitter.com/theapache64) for updates!
 
 ### Getting started
 
-Expekt is available via [Maven Central](https://repo1.maven.org/maven2/com/winterbe/expekt/). Just add the dependency to your Maven POM or Gradle build config.
+Expekt is available via JitPack. Just add the dependency to your Maven POM or Gradle build config.
 
 ##### Maven
 
