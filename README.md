@@ -1,4 +1,4 @@
-# Expekt ![Build](https://github.com/theapache64/expekt/workflows/Java%20CI%20with%20Gradle/badge.svg)
+# Expekt 
 
 Expekt is a BDD assertion library for [Kotlin](http://kotlinlang.org/), inspired by [Chai.js](http://chaijs.com/).  
 It works with your favorite test runner such as [JUnit](http://junit.org/) and [Spek](http://jetbrains.github.io/spek/).
