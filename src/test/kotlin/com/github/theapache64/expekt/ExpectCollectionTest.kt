@@ -1,6 +1,6 @@
 package com.github.theapache64.expekt
 
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
 
 class ExpectCollectionTest {
 

@@ -15,11 +15,8 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
-    // JUnit:JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
-    testImplementation 'org.hamcrest:hamcrest:2.2'
-
-    // testImplementation 'org.jetbrains.kotlin:kotlin-test:2.2.0'
+    // Kotlin Test: Kotlin's multiplatform testing framework
+    testImplementation 'org.jetbrains.kotlin:kotlin-test:2.2.0'
 }
 
 compileKotlin {

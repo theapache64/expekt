@@ -1,8 +1,7 @@
 package com.github.theapache64.expekt
 
-import org.hamcrest.CoreMatchers
-import org.hamcrest.MatcherAssert.assertThat
-import org.junit.jupiter.api.Assertions
+import kotlin.test.assertEquals
+import kotlin.test.fail
 
 fun fails(fn: () -> Unit) {
     var failed = false
@@ -22,7 +21,7 @@ fun fails(message: String, fn: () -> Unit) {
     try {
         fn()
     } catch(e: AssertionError) {
-        assertThat(e.message, CoreMatchers.`is`(message))
+        assertEquals(message, e.message)
         failed = true
     }
 
