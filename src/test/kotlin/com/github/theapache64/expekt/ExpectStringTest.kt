@@ -62,7 +62,7 @@ class ExpectStringTest {
     @Test
     fun lengthProp() {
         passes { expect("abc").to.have.length.above(2) }
-        fails("expect abc to have length equal 4") {
+        fails("expect abc to have length equal 4 ==> expected: <4> but was: <3>") {
             expect("abc").to.have.length.equal(4)
         }
     }
