@@ -74,6 +74,7 @@ publishing {
             }
             groupId 'com.github.theapache64'
             artifactId 'expekt'
+            // [latest version - i promise!]
             version '1.0.3'
             pom.withXml {
                 def root = asNode()
