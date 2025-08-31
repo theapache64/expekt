@@ -32,7 +32,8 @@ repositories {
 }
 
 dependencies {
-   testImplementation "com.github.theapache64:expekt:1.0.0"
+    // [latest version - i promise!]
+    testImplementation "com.github.theapache64:expekt:1.0.2"
 }
 ```
 

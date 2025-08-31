@@ -6,7 +6,7 @@ plugins {
 
 group 'com.github.theapache64'
 // [latest version - i promise!]
-version '1.0.1'
+version '1.0.2'
 
 repositories {
     mavenCentral()
@@ -74,7 +74,7 @@ publishing {
             }
             groupId 'com.github.theapache64'
             artifactId 'expekt'
-            version '1.0.1'
+            version '1.0.2'
             pom.withXml {
                 def root = asNode()
                 root.appendNode('description', 'An assertion library for Kotlin')
