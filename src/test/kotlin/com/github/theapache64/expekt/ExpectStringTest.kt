@@ -139,7 +139,7 @@ class ExpectStringTest {
     @Test
     fun `null`() {
         passes { expect(null as String?).to.be.`null` }
-        fails("expect abc to be null") {
+        fails("expect abc to be null ==> expected: <null> but was: <abc>") {
             expect("abc").to.be.`null`
         }
     }

@@ -151,7 +151,7 @@ class ExpectMapTest {
     @Test
     fun `null`() {
         passes { expect(null as Map<Int, Int>?).to.be.`null` }
-        fails("expect {a=1} to be null") { expect(mapOf("a" to 1)).to.be.`null` }
+        fails("expect {a=1} to be null ==> expected: <null> but was: <{a=1}>") { expect(mapOf("a" to 1)).to.be.`null` }
     }
 
 }

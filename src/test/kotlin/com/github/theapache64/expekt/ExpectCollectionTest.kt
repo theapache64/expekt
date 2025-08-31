@@ -88,7 +88,7 @@ class ExpectCollectionTest {
     @Test
     fun sizeProp() {
         passes { expect(listOf(1, 2, 3)).to.have.size.above(2) }
-        fails("expect [1, 2, 3] to have size equal 4") {
+        fails("expect [1, 2, 3] to have size equal 4 ==> expected: <4> but was: <3>") {
             expect(listOf(1, 2, 3)).to.have.size.equal(4)
         }
     }
@@ -132,7 +132,7 @@ class ExpectCollectionTest {
     @Test
     fun equals() {
         passes { expect(listOf(1, 2, 3)).to.equal(listOf(1, 2, 3)) }
-        fails("expect [1, 2, 3] to equal [1, 2, 3, 4]") {
+        fails("expect [1, 2, 3] to equal [1, 2, 3, 4] ==> expected: <[1, 2, 3, 4]> but was: <[1, 2, 3]>") {
             expect(listOf(1, 2, 3)).to.equal(listOf(1, 2, 3, 4))
         }
     }
@@ -140,7 +140,7 @@ class ExpectCollectionTest {
     @Test
     fun `null`() {
         passes { expect(null as Collection<Int>?).to.be.`null` }
-        fails("expect [1, 2, 3] to be null") {
+        fails("expect [1, 2, 3] to be null ==> expected: <null> but was: <[1, 2, 3]>") {
             expect(listOf(1, 2, 3)).to.be.`null`
         }
     }

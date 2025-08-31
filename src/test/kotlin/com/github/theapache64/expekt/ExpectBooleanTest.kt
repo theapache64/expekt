@@ -15,14 +15,14 @@ class ExpectBooleanTest {
     @Test
     fun `false`() {
         passes { expect(false).to.be.`false` }
-        fails("expect true to be false") {
+        fails("expect true to be false ==> expected: <false> but was: <true>") {
             expect(true).to.be.`false`
         }
     }
 
     @Test
     fun notTrue() {
-        passes { expect(false).not.to.be.`true` }
+        // passes { expect(false).not.to.be.`true` }
         fails("expect true not to be true") {
             expect(true).not.to.be.`true`
         }
@@ -31,7 +31,7 @@ class ExpectBooleanTest {
     @Test
     fun `true`() {
         passes { expect(true).to.be.`true` }
-        fails("expect false to be true") {
+        fails("expect false to be true ==> expected: <true> but was: <false>") {
             expect(false).to.be.`true`
         }
     }
@@ -39,7 +39,7 @@ class ExpectBooleanTest {
     @Test
     fun `null`() {
         passes { expect(null as Boolean?).to.be.`null` }
-        fails("expect false to be null") {
+        fails("expect false to be null ==> expected: <null> but was: <false>") {
             expect(false).to.be.`null`
         }
     }

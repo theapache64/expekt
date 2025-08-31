@@ -88,7 +88,7 @@ class ExpectSequenceTest {
     @Test
     fun sizeProp() {
         passes { expect(sequenceOf(1, 2, 3)).to.have.size.above(2) }
-        fails("expect [1, 2, 3] to have size equal 4") {
+        fails("expect [1, 2, 3] to have size equal 4 ==> expected: <4> but was: <3>") {
             expect(sequenceOf(1, 2, 3)).to.have.size.equal(4)
         }
     }
@@ -140,7 +140,7 @@ class ExpectSequenceTest {
     @Test
     fun `null`() {
         passes { expect(null as Sequence<Int>?).to.be.`null` }
-        fails("expect [1, 2, 3] to be null") {
+        fails("expect [1, 2, 3] to be null ==> expected: <null> but was: <[1, 2, 3]>") {
             expect(sequenceOf(1, 2, 3)).to.be.`null`
         }
     }

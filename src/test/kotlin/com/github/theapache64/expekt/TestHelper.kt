@@ -1,5 +1,7 @@
 package com.github.theapache64.expekt
 
+import org.gradle.internal.impldep.org.hamcrest.CoreMatchers
+import org.gradle.internal.impldep.org.hamcrest.MatcherAssert.assertThat
 import kotlin.test.assertEquals
 import kotlin.test.fail
 
@@ -21,7 +23,7 @@ fun fails(message: String, fn: () -> Unit) {
     try {
         fn()
     } catch(e: AssertionError) {
-        assertEquals(message, e.message)
+        assertThat(e.message, CoreMatchers.`is`(message))
         failed = true
     }
 

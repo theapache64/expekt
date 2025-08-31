@@ -108,7 +108,12 @@ open class ExpectAny<T>(protected val subject: T?, protected val flavor: Flavor)
 
     private fun fail(expected: T?, actual: T?) {
         val message = words.joinToString(separator = " ")
-        assertEquals(expected, actual, message)
+        if (expected == actual) {
+            // negated
+            throw AssertionError(message)
+        } else {
+            assertEquals(expected, actual, message)
+        }
     }
 
     protected fun verify2(// TODO: Change this to verify

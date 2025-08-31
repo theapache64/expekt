@@ -35,7 +35,7 @@ class ExpectAnyTest {
     fun `null`() {
         data class A(val a: String)
         passes { expect(null as A?).to.be.`null` }
-        fails("expect A(a=a) to be null") {
+        fails("expect A(a=a) to be null ==> expected: <null> but was: <A(a=a)>") {
             expect(A("a")).to.be.`null`
         }
     }
@@ -73,7 +73,7 @@ class ExpectAnyTest {
         val a1 = A("1")
         val a2 = A("2")
         passes { expect(a1).to.be.of.identity(a1) }
-        fails("expect A(a=1) to be of identity A(a=2)") {
+        fails("expect A(a=1) to be of identity A(a=2) ==> expected: <A(a=2)> but was: <A(a=1)>") {
             expect(a1).to.be.of.identity(a2)
         }
     }
@@ -97,7 +97,7 @@ class ExpectAnyTest {
         val a2 = A("1")
         val a3 = A("3")
         passes { expect(a1).to.be.equal(a2) }
-        fails("expect A(a=1) to equal A(a=3)") {
+        fails("expect A(a=1) to equal A(a=3) ==> expected: <A(a=3)> but was: <A(a=1)>") {
             expect(a1).to.equal(a3)
         }
     }
@@ -109,7 +109,7 @@ class ExpectAnyTest {
         val a2 = A("1")
         val a3 = A("2")
         passes { a1.should.equal(a2) }
-        fails("A(a=1) should equal A(a=2)") { a1.should.equal(a3) }
+        fails("A(a=1) should equal A(a=2) ==> expected: <A(a=2)> but was: <A(a=1)>") { a1.should.equal(a3) }
     }
 
 }
