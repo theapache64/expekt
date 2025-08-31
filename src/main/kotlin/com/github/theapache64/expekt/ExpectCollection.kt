@@ -36,7 +36,7 @@ class ExpectCollection<T>(subject: Collection<T>?, flavor: Flavor): ExpectAny<Co
     fun contain(other: T): ExpectCollection<T> {
         words.add("contain")
         words.add(other.toString())
-        verify { subject!!.contains(other) }
+        verify2 { subject!!.contains(other) }
         return this
     }
 
@@ -44,9 +44,9 @@ class ExpectCollection<T>(subject: Collection<T>?, flavor: Flavor): ExpectAny<Co
         words.add("elements")
         words.add(elements.toList().toString())
         if (anyMode) {
-            verify { containsAny(elements) }
+            verify2 { containsAny(elements) }
         } else {
-            verify { containsAll(elements) }
+            verify2 { containsAll(elements) }
         }
         return this
     }
@@ -75,7 +75,7 @@ class ExpectCollection<T>(subject: Collection<T>?, flavor: Flavor): ExpectAny<Co
 
     val empty: ExpectCollection<T> get() {
         words.add("empty")
-        verify { subject!!.isEmpty() }
+        verify2 { subject!!.isEmpty() }
         return this
     }
 
@@ -92,7 +92,7 @@ class ExpectCollection<T>(subject: Collection<T>?, flavor: Flavor): ExpectAny<Co
     fun size(size: Int): ExpectCollection<T> {
         words.add("size")
         words.add(size.toString())
-        verify { subject!!.size == size }
+        verify2 { subject!!.size == size }
         return this
     }
 

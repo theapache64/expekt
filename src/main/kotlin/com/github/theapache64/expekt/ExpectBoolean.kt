@@ -12,7 +12,7 @@ class ExpectBoolean(subject: Boolean?, flavor: Flavor) : ExpectAny<Boolean>(subj
      */
     val `true`: Unit get() {
         words.add("true")
-        verify { subject == true }
+        verify(true, subject) { subject == true }
     }
 
     /**
@@ -20,7 +20,7 @@ class ExpectBoolean(subject: Boolean?, flavor: Flavor) : ExpectAny<Boolean>(subj
      */
     val `false`: Unit get() {
         words.add("false")
-        verify { subject == false }
+        verify(false, subject) { subject == false }
     }
 
     override val to: ExpectBoolean get() {

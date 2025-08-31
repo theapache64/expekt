@@ -1,5 +1,7 @@
 package com.github.theapache64.expekt
 
+import kotlin.test.assertEquals
+
 /**
  * Expectation context for any kind of value. Every specific expectation context extends from this context.
  *
@@ -17,6 +19,7 @@ open class ExpectAny<T>(protected val subject: T?, protected val flavor: Flavor)
                 words.add("expect")
                 words.add(subject.toString())
             }
+
             Flavor.SHOULD -> {
                 words.add(subject.toString())
                 words.add("should")
@@ -27,28 +30,30 @@ open class ExpectAny<T>(protected val subject: T?, protected val flavor: Flavor)
     /**
      * Negate this expectation.
      */
-    open val not: ExpectAny<T> get() {
-        negated = !negated
-        words.add("not")
-        return this
-    }
+    open val not: ExpectAny<T>
+        get() {
+            negated = !negated
+            words.add("not")
+            return this
+        }
 
     /**
      * Assert that the subject of this expectation is `null`.
      */
-    open val `null`: ExpectAny<T> get() {
-        words.add("null")
-        verify { subject == null }
-        return this
-    }
+    open val `null`: ExpectAny<T>
+        get() {
+            words.add("null")
+            verify(null, subject) { subject == null }
+            return this
+        }
 
     /**
      * Assert that the subject of this expectation is an instance of the given type.
      */
-    open fun <S: T> instanceof(type: Class<S>): ExpectAny<T> {
+    open fun <S : T> instanceof(type: Class<S>): ExpectAny<T> {
         words.add("instanceof")
         words.add(type.toString())
-        verify { type.isInstance(subject) }
+        verify2 { type.isInstance(subject) }
         return this
     }
 
@@ -59,7 +64,7 @@ open class ExpectAny<T>(protected val subject: T?, protected val flavor: Flavor)
     open fun identity(expected: T?): ExpectAny<T> {
         words.add("identity")
         words.add(expected.toString())
-        verify { subject === expected }
+        verify(expected, subject) { subject === expected }
         return this
     }
 
@@ -70,7 +75,7 @@ open class ExpectAny<T>(protected val subject: T?, protected val flavor: Flavor)
     open fun equal(expected: T?): ExpectAny<T> {
         words.add("equal")
         words.add(expected.toString())
-        verify { subject == expected }
+        verify(expected, subject) { subject == expected }
         return this
     }
 
@@ -80,14 +85,35 @@ open class ExpectAny<T>(protected val subject: T?, protected val flavor: Flavor)
     open fun satisfy(predicate: (a: T) -> Boolean): ExpectAny<T> {
         words.add("satisfy")
         words.add("predicate")
-        verify { predicate(subject!!) }
+        verify2 { predicate(subject!!) }
         return this
     }
 
     /**
      * Verifies that the given predicates evaluates to true, otherwise throws an `AssertionError`.
      */
-    protected fun verify(rule: () -> Boolean) {
+    protected fun verify(
+        expected: T?,
+        actual: T?,
+        rule: () -> Boolean
+    ) {
+        val truthy = rule()
+        if (!truthy && !negated) {
+            fail(expected, actual)
+        }
+        if (truthy && negated) {
+            fail(expected, actual)
+        }
+    }
+
+    private fun fail(expected: T?, actual: T?) {
+        val message = words.joinToString(separator = " ")
+        assertEquals(expected, actual, message)
+    }
+
+    protected fun verify2(// TODO: Change this to verify
+        rule: () -> Boolean
+    ) {
         val truthy = rule()
         if (!truthy && !negated) {
             fail()
@@ -105,129 +131,145 @@ open class ExpectAny<T>(protected val subject: T?, protected val flavor: Flavor)
     /**
      * Language chain without any further semantical meaning.
      */
-    open val to: ExpectAny<T> get() {
-        words.add("to")
-        return this
-    }
+    open val to: ExpectAny<T>
+        get() {
+            words.add("to")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val be: ExpectAny<T> get() {
-        words.add("be")
-        return this
-    }
+    open val be: ExpectAny<T>
+        get() {
+            words.add("be")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val been: ExpectAny<T> get() {
-        words.add("been")
-        return this
-    }
+    open val been: ExpectAny<T>
+        get() {
+            words.add("been")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val that: ExpectAny<T> get() {
-        words.add("that")
-        return this
-    }
+    open val that: ExpectAny<T>
+        get() {
+            words.add("that")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val which: ExpectAny<T> get() {
-        words.add("which")
-        return this
-    }
+    open val which: ExpectAny<T>
+        get() {
+            words.add("which")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val and: ExpectAny<T> get() {
-        words.add("and")
-        return this
-    }
+    open val and: ExpectAny<T>
+        get() {
+            words.add("and")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val has: ExpectAny<T> get() {
-        words.add("has")
-        return this
-    }
+    open val has: ExpectAny<T>
+        get() {
+            words.add("has")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val have: ExpectAny<T> get() {
-        words.add("have")
-        return this
-    }
+    open val have: ExpectAny<T>
+        get() {
+            words.add("have")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val with: ExpectAny<T> get() {
-        words.add("with")
-        return this
-    }
+    open val with: ExpectAny<T>
+        get() {
+            words.add("with")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val at: ExpectAny<T> get() {
-        words.add("at")
-        return this
-    }
+    open val at: ExpectAny<T>
+        get() {
+            words.add("at")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val a: ExpectAny<T> get() {
-        words.add("a")
-        return this
-    }
+    open val a: ExpectAny<T>
+        get() {
+            words.add("a")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val an: ExpectAny<T> get() {
-        words.add("an")
-        return this
-    }
+    open val an: ExpectAny<T>
+        get() {
+            words.add("an")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val of: ExpectAny<T> get() {
-        words.add("of")
-        return this
-    }
+    open val of: ExpectAny<T>
+        get() {
+            words.add("of")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val same: ExpectAny<T> get() {
-        words.add("same")
-        return this
-    }
+    open val same: ExpectAny<T>
+        get() {
+            words.add("same")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val the: ExpectAny<T> get() {
-        words.add("the")
-        return this
-    }
+    open val the: ExpectAny<T>
+        get() {
+            words.add("the")
+            return this
+        }
 
     /**
      * Language chain without any further semantical meaning.
      */
-    open val `is`: ExpectAny<T> get() {
-        words.add("is")
-        return this
-    }
+    open val `is`: ExpectAny<T>
+        get() {
+            words.add("is")
+            return this
+        }
 
 }
