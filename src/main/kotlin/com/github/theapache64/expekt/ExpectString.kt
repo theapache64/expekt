@@ -19,42 +19,42 @@ class ExpectString(subject: String?, flavor: Flavor) : ExpectComparable<String>(
     val empty: ExpectString
         get() {
             words.add("empty")
-            verify2 { subject!!.isEmpty() }
+            verify { subject!!.isEmpty() }
             return this
         }
 
     fun match(regex: Regex): ExpectString {
         words.add("match")
         words.add(regex.pattern)
-        verify2 { regex.matches(subject!!) }
+        verify { regex.matches(subject!!) }
         return this
     }
 
     fun length(length: Int): ExpectString {
         words.add("length")
         words.add(length.toString())
-        verify2 { subject!!.length == length }
+        verify { subject!!.length == length }
         return this
     }
 
     fun contain(other: String, ignoreCase: Boolean = false): ExpectString {
         words.add("contain")
         words.add(other)
-        verify2 { subject!!.indexOf(other, 0, ignoreCase) >= 0 }
+        verify { subject!!.indexOf(other, 0, ignoreCase) >= 0 }
         return this
     }
 
     fun startWith(other: String): ExpectString {
         words.add("startWith")
         words.add(other)
-        verify2 { subject!!.startsWith(other) }
+        verify { subject!!.startsWith(other) }
         return this
     }
 
     fun endWith(other: String): ExpectString {
         words.add("endWith")
         words.add(other)
-        verify2 { subject!!.endsWith(other) }
+        verify { subject!!.endsWith(other) }
         return this
     }
 

@@ -36,7 +36,7 @@ class ExpectMap<K, V>(subject: Map<K, V>?, flavor: Flavor): ExpectAny<Map<K, V>>
     fun contain(entry: Pair<K, V>): ExpectMap<K, V> {
         words.add("contain")
         words.add(entry.toString())
-        verify2 { subject!![entry.first] == entry.second }
+        verify { subject!![entry.first] == entry.second }
         return this
     }
 
@@ -44,9 +44,9 @@ class ExpectMap<K, V>(subject: Map<K, V>?, flavor: Flavor): ExpectAny<Map<K, V>>
         words.add("keys")
         words.add(keys.toList().toString())
         if (anyMode) {
-            verify2 { containsAnyKeys(keys) }
+            verify { containsAnyKeys(keys) }
         } else {
-            verify2 { containsAllKeys(keys) }
+            verify { containsAllKeys(keys) }
         }
         return this
     }
@@ -55,9 +55,9 @@ class ExpectMap<K, V>(subject: Map<K, V>?, flavor: Flavor): ExpectAny<Map<K, V>>
         words.add("values")
         words.add(values.toList().toString())
         if (anyMode) {
-            verify2 { containsAnyValues(values) }
+            verify { containsAnyValues(values) }
         } else {
-            verify2 { containsAllValues(values) }
+            verify { containsAllValues(values) }
         }
         return this
     }
@@ -108,7 +108,7 @@ class ExpectMap<K, V>(subject: Map<K, V>?, flavor: Flavor): ExpectAny<Map<K, V>>
 
     val empty: ExpectMap<K, V> get() {
         words.add("empty")
-        verify2 { subject!!.isEmpty() }
+        verify { subject!!.isEmpty() }
         return this
     }
 
@@ -125,7 +125,7 @@ class ExpectMap<K, V>(subject: Map<K, V>?, flavor: Flavor): ExpectAny<Map<K, V>>
     fun size(size: Int): ExpectMap<K, V> {
         words.add("size")
         words.add(size.toString())
-        verify2 { subject!!.size == size }
+        verify { subject!!.size == size }
         return this
     }
 

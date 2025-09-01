@@ -14,7 +14,7 @@ class ExpectDouble(subject: Double?, flavor: Flavor) : ExpectComparable<Double>(
         words.add("closeTo")
         words.add(expected.toString())
         words.add("±" + delta.toString())
-        verify2 { subject!! >= expected - delta && subject <= expected + delta }
+        verify { subject!! >= expected - delta && subject <= expected + delta }
         return this
     }
 

@@ -15,7 +15,7 @@ open class ExpectComparable<T: Comparable<T>>(subject: T?, flavor: Flavor) : Exp
         words.add("within")
         words.add(min.toString())
         words.add(max.toString())
-        verify2 { subject!! >= min && subject <= max }
+        verify { subject!! >= min && subject <= max }
         return this
     }
 
@@ -25,7 +25,7 @@ open class ExpectComparable<T: Comparable<T>>(subject: T?, flavor: Flavor) : Exp
     open fun most(other: T): ExpectComparable<T> {
         words.add("most")
         words.add(other.toString())
-        verify2 { subject!! <= other }
+        verify { subject!! <= other }
         return this
     }
 
@@ -35,7 +35,7 @@ open class ExpectComparable<T: Comparable<T>>(subject: T?, flavor: Flavor) : Exp
     open fun least(other: T): ExpectComparable<T> {
         words.add("least")
         words.add(other.toString())
-        verify2 { subject!! >= other }
+        verify { subject!! >= other }
         return this
     }
 
@@ -45,7 +45,7 @@ open class ExpectComparable<T: Comparable<T>>(subject: T?, flavor: Flavor) : Exp
     open fun above(other: T): ExpectComparable<T> {
         words.add("above")
         words.add(other.toString())
-        verify2 { subject!! > other }
+        verify { subject!! > other }
         return this
     }
 
@@ -55,7 +55,7 @@ open class ExpectComparable<T: Comparable<T>>(subject: T?, flavor: Flavor) : Exp
     open fun below(other: T): ExpectComparable<T> {
         words.add("below")
         words.add(other.toString())
-        verify2 { subject!! < other }
+        verify { subject!! < other }
         return this
     }
 
